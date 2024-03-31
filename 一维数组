@@ -1,0 +1,82 @@
+//建立一个数组，并对数组进行以下操作
+//自定义一个一维数组打印函数
+//用函数将数组初始化为0
+//对数组反向排序
+
+#include <stdio.h>
+
+void reverse(int arr[],int sz)
+{
+	int left = 0;
+	int right = sz - 1;
+	int tmp = 0;
+	while (left<right)
+	{
+		tmp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = tmp;
+		left++;
+		right--;
+	}
+
+}
+
+void inzt(int arr[],int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		 arr[i] = 0;
+	}
+
+}
+
+
+void print(int arr[],int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+		if (i == sz - 1)
+		{
+			printf("\n");
+		}
+	}
+}
+
+
+
+int main()
+{
+	//创建一个数组
+	int arr[10] = {1,2,3,4,5,6,7};
+	//确定数组长度
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	//引用函数
+
+	//先输出查看数组内容
+	//自定义一个一维数组打印函数print
+
+	printf("自定义一个一维数组\n");
+	print(arr,sz);
+
+	//通过公式转化，实现数组内容反向
+
+	reverse(arr, sz);
+
+	//打印一下看看
+	printf("数组内容反向\n");
+	print(arr, sz);
+
+	//通过公式转化，实现数组初始化为0
+
+	inzt(arr,sz);
+
+	//打印转化后的数组
+
+	printf("数组初始化为0\n");
+	print(arr, sz);
+
+	return 0;
+}
